@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app: #just put any name
+    build:
+      context: . #current directory
+      dockerfile: Dockerfile. #any docker file name  like for Dockerfile.prod
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "3001:3000"
+    environment:
+      - REACT_APP_AUTHOR=Gopeshkumar
+      - REACT_APP_VERSION_NEW=4.0
+      - CHOKIDAR_USEPOLLING=true
+    env_file:
+      - ./.env
